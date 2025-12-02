@@ -20,7 +20,7 @@
           <a class="nav-link active" aria-current="page" href="nummers.php">KlantenLijst</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="afspeellijsten.php">LaadpalenLijst</a>
+          <a class="nav-link" href="laadpalenlijst.php">LaadpalenLijst</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="logout.php">logout</a>
