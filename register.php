@@ -1,60 +1,113 @@
-<!-- de rest van de code staat inprincipe gedefiniert in Begink.php -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="">
+    <title>Registreren – Ltrappo</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Jouw globale, moderne stylesheet -->
+    <link rel="stylesheet" href="styleindex.css">
 </head>
+
 <body>
-<header>
 
-        
-    </header>
-    <h2>
-        Register 
-    </h2>
-<!--div / division is een verdeling van onderdelen. in dit geval is dat het formulier -->
-    <div class="logindiv">
-    <form class="registreer" method="POST" action="register_process.php" >
+<div class="container mt-5 fade-in">
 
-    <label for="username">Username:</label><br>
-        <input type="username" id="username" name="username" class="username" required><br>
+    <div class="login-card shadow-lg">
 
-        <label for="firstname">Firstname:</label><br>
-        <input type="text" id="firstname" name="firstname" class="firstname" required><br>
+        <h2 class="text-center mb-3">Registreren</h2>
+        <p class="text-center text-muted mb-4">Maak een nieuw account aan</p>
 
-        <label for="lastname">Lastname:</label><br>
-        <input type="text" id="lastname" name="lastname" class="lastname" required><br>
+        <form method="POST" action="register_process.php">
 
-        <label for="email">email:</label><br>
-        <input type="email" id="email" name="email" class="email" required><br>
+            <!-- Username -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input type="text" 
+                       class="form-control custom-input" 
+                       id="username" 
+                       name="username" 
+                       placeholder="Gebruikersnaam" 
+                       required>
+            </div>
 
-        <label for="Wachtwoord">Wachtwoord:</label><br>
-        <input type="password" id="password" name="password" class="password" required><br>
+            <!-- Firstname -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                </div>
+                <input type="text" 
+                       class="form-control custom-input" 
+                       id="firstname" 
+                       name="firstname" 
+                       placeholder="Voornaam" 
+                       required>
+            </div>
 
-        <div class="lbutton">
-<!-- input type = wat voor soort input veld het moet worden
- class definier je het voor aanroepen in de css
- name is hoe het input veld heet en dus hoe je het aanroept
- value is de tekst die in het input veld staat-->
-        <input type="submit" class="Lbutton" name="register" value="Registreer"/>
-        </div>
-    </form>
-  
-    
+            <!-- Lastname -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                </div>
+                <input type="text" 
+                       class="form-control custom-input" 
+                       id="lastname" 
+                       name="lastname" 
+                       placeholder="Achternaam" 
+                       required>
+            </div>
 
-<div class="container">
-<!-- Bootstrap (andere versie van css) division die ik heb laten staat doet in principe niks lmao-->
-<div class="panel panel-primary">
+            <!-- Email -->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                </div>
+                <input type="email" 
+                       class="form-control custom-input" 
+                       id="email" 
+                       name="email" 
+                       placeholder="E-mail" 
+                       required>
+            </div>
+
+            <!-- Wachtwoord -->
+            <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                </div>
+                <input type="password" 
+                       class="form-control custom-input" 
+                       id="password" 
+                       name="password" 
+                       placeholder="Wachtwoord" 
+                       required>
+
+                <div class="input-group-append">
+                    <span class="input-group-text password-toggle register-toggle">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-block login-btn" name="register">Account aanmaken</button>
+
+            <div class="text-center mt-4">
+                <a href="index2.php">Al een account? Inloggen</a>
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
-</div>
-
-
-
-
+<script src="scriptindex.js"></script>
 </body>
 </html>
