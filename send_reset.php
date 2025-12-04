@@ -22,7 +22,7 @@ $user = $stmt->fetch();
 
 if ($user) {
 
-    // Token genereren
+    // Token genereren van 32 bytes
     $token = bin2hex(random_bytes(32));
     $hashedToken = password_hash($token, PASSWORD_DEFAULT);
 
@@ -36,17 +36,15 @@ if ($user) {
     // Reset link
     $resetLink = "http://localhost/The-Challenge/reset_password.php?email=$email&token=$token";
 
-    // ------------------------
-    // PHPMailer instellen
-    // ------------------------
+    
     $mail = new PHPMailer(true);
 
     try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'doneikmans@gmail.com'; // Jouw Gmail
-        $mail->Password   = 'sjsw jijs cmhl pikc';    // App-wachtwoord Gmail
+        $mail->Username   = 'doneikmans@gmail.com'; 
+        $mail->Password   = 'sjsw jijs cmhl pikc';    // App-wachtwoord Gmail(alleen beheerder van het gmail account kan dit zien)
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
@@ -63,12 +61,12 @@ if ($user) {
 
         $mail->send();
     } catch (Exception $e) {
-        // Als e-mail niet verzonden kan worden, log de fout (niet tonen aan gebruiker)
+        // Als e-mail niet verzonden kan worden, log de fout
         error_log("PHPMailer Error: " . $mail->ErrorInfo);
     }
 }
 
-// Altijd dezelfde melding voor veiligheid
+// melding voor veiligheid
 echo "Als dit e-mailadres bestaat, is een reset link verstuurd.";
 ?>
 
