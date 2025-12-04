@@ -1,0 +1,49 @@
+/* Navbar styling */
+.navbar {
+    background: #ffffff !important;       /* Witte achtergrond */
+    border-radius: 12px;                  /* Afgeronde hoeken */
+    padding: 12px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    transition: 0.3s ease;
+}
+
+.navbar:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12); /* Hover schaduw iets sterker */
+}
+
+/* Brand styling */
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007bff !important; /* Blauwe kleur */
+    transition: 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #0056c8 !important;
+    text-decoration: none;
+}
+
+/* Navbar links */
+.nav-link {
+    font-size: 1.1rem;
+    color: #333 !important;
+    margin-left: 15px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
+    transform: translateY(-2px);  /* Subtiele hover-animatie */
+}
+
+/* Actieve link */
+.nav-link.active {
+    font-weight: 600;
+    color: #007bff !important;
+}
+
+/* Responsive spacing */
+.navbar-nav {
+    align-items: center;
+}

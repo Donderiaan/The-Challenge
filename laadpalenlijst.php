@@ -1,74 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laadpalen Overzicht</title>
+    <title>Laadpalen Lijst</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Table.css">
+
 </head>
-<body>
-<!-- database en navigatie bar binnen deze pagina aanroepen zodat je niet per file alles dat je wilt hoeft te kopieren in iedere file -->
-<?php include "dbconnection.php"; ?>
 <?php include 'beginb.php'; ?>
+<div class="container mt-5 fade-in">
 
-<div class="container mt-5">
-<!-- knop om naar de laadpaal create pagina te gaan -->
-    <a href="laadpaalcreate.php" class="btn btn-success mb-3">Laadpaal Toevoegen</a>
+    <!-- Zoekformulier -->
+    <form method="GET" class="form-inline mb-3 justify-content-center">
+        <input type="text" name="search" class="form-control mr-2 mb-2" placeholder="Zoek op naam" 
+               value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+        <button type="submit" class="btn btn-primary mb-2">Zoek</button>
+    </form>
 
-    <table class="table">
-        <thead>
-            <tr>
-<!-- alle header waardes van de table waar de ingevoerde waardes in komen -->
-                <th>ID</th>
-                <th>Naam</th>
-                <th>Status</th>
-                <th>Postcode</th>
-                <th>Afstand</th>
-                <th>Acties</th>
-            </tr>
-        </thead>
-        <tbody>
+    <!-- Toevoegen knop -->
+    <div class="text-right mb-3">
+        <a href="laadpaalcreate.php" class="btn btn-success">Laadpaal Toevoegen</a>
+    </div>
 
+    <!-- Laadpalen tabel -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="">
+                <tr>
+                    <th>ID</th>
+                    <th>Naam</th>
+                    <th>Status</th>
+                    <th>Postcode</th>
+                    <th>Afstand</th>
+                    <th>Acties</th>
+                </tr>
+            </thead>
+            <tbody>
 <?php
-// Haal alle laadpalen op uit de database (dit werkt alleen als er al iets in de database staat)
+include "dbconnection.php";
+
+
 try {
-    $query = "SELECT * FROM laadpaal";
-    $stmt = $db_connection->prepare($query);
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $search = "%" . $_GET['search'] . "%";
+        $query = "SELECT * FROM laadpaal WHERE LP_name LIKE :search";
+        $stmt = $db_connection->prepare($query);
+        $stmt->bindParam(':search', $search, PDO::PARAM_STR);
+    } else {
+        $query = "SELECT * FROM laadpaal";
+        $stmt = $db_connection->prepare($query);
+    }
+
     $stmt->execute();
     $palen = $stmt->fetchAll();
 
     foreach ($palen as $paal) {
 ?>
-<!--haalt de waardes uit de database en toont ze in een Tabledown/td -->
-        <tr>
-            <td><?= $paal["LP_id"] ?></td>
-            <td><?= $paal["LP_name"] ?></td>
-            <td><?= $paal["Status"] ?></td>
-            <td><?= $paal["Postcode"] ?></td>
-            <td><?= $paal["Afstand"] ?> km</td>
-
-            <td>
-                <!-- een action in de table waar je per Id een laadpaal kan bewerken -->
-                <a href="laadpaalEdit.php?id=<?= $paal['LP_id'] ?>" class="btn btn-primary">Edit</a>
-                <!-- een form in de table waar je per Id een laadpaal kan verwijderen -->
-                <form action="Laadpaal_CRUD.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="delete_laadpaal" value="<?= $paal['LP_id'] ?>">
-                    <button class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
+                <tr>
+                    <td><?= $paal["LP_id"] ?></td>
+                    <td><?= $paal["LP_name"] ?></td>
+                    <td><?= $paal["Status"] ?></td>
+                    <td><?= $paal["Postcode"] ?></td>
+                    <td><?= $paal["Afstand"] ?> km</td>
+                    <td>
+                        <a href="laadpaalEdit.php?id=<?= $paal['LP_id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="Laadpaal_CRUD.php" method="POST" style="display:inline;">
+                            <input type="hidden" name="delete_laadpaal" value="<?= $paal['LP_id'] ?>">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
 <?php
     }
-    // vangt fouten op bij het ophalen van de laadpalen
 } catch (PDOException $e) {
-    echo $e->getMessage();
+    echo "<tr><td colspan='6' class='text-danger'>".$e->getMessage()."</td></tr>";
 }
 ?>
-
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
 </div>
-
 </body>
 </html>

@@ -1,4 +1,6 @@
 <?php
+
+// haal de gekozen email en token uit de zoekbalk/URL
 $email = $_GET['email'] ?? '';
 $token = $_GET['token'] ?? '';
 ?>

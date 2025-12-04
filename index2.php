@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Jouw professionele stylesheet -->
+    
     <link rel="stylesheet" href="styleindex.css">
 </head>
 
@@ -16,7 +16,7 @@
 
 <div class="container mt-5 fade-in">
 
-    <!-- Login Card -->
+    
     <div class="login-card shadow-lg">
 
         <h2 class="text-center mb-3">Inloggen Ltrappo</h2>
@@ -24,7 +24,7 @@
 
         <form method="POST" action="login.php">
 
-            <!-- Email -->
+           
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
@@ -36,7 +36,7 @@
                        required>
             </div>
 
-            <!-- Password -->
+          
             <div class="input-group mb-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-key"></i></span>
