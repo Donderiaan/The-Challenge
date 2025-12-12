@@ -35,3 +35,10 @@
 .table-responsive {
     overflow-x: auto;
 }
+
+/* Center alle tabelcellen (zowel header als data) */
+.table th, 
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}

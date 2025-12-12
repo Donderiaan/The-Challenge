@@ -40,7 +40,7 @@
 
     <!-- Toevoegen knop -->
     <div class="text-right mb-3">
-        <a href="klantencreate.php" class="btn btn-success">Laadpaal Toevoegen</a>
+        <a href="klantencreate.php" class="btn btn-success">Klant Toevoegen</a>
     </div>
 
     <!-- Laadpalen tabel -->
