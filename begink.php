@@ -23,10 +23,13 @@
         <!-- li = een listitem en zijn de items binnen een UL hier kan je een anchor aan toevoegen zodat je een link krijgt-->
         <li class="nav-item">
           <!-- href hord bij een anchor/ a tagg en die bepaalt naar welke pagina je genavigeerd word-->
-          <a class="nav-link active" aria-current="page" href="nummers.php">Laadpaalhuren</a>
+          <a class="nav-link active" aria-current="page" href="laadpaalhuren.php">Laadpaalhuren</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="genre.php">Uitleg</a>
+          <a class="nav-link active" aria-current="page" href="uitleg.php">Uitleg</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="gehuurdelaadpaal.php">gehuurde laadpalen</a>
         </li>
         <li class="nav-item ">
             <a class="nav-link active" aria-current="page" href="logout.php">logout</a>
