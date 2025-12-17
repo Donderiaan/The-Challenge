@@ -15,7 +15,7 @@ if (isset($_SESSION['lp_id']) && isset($_SESSION['uren'])) {
 }
 
 
-$bedrag = $uren * 2.50;
+$bedrag = $uren * 2.60;
 ?>
 
 <!DOCTYPE html>
