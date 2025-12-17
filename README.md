@@ -1,7 +1,7 @@
 # The-Challenge
 
 
-# Code die is geschreven: HTML, CSS, JavaScript en PHP
+# Code die is geschreven: HTML, CSS, JavaScript en PHP.
 # -------------------------------------------------------------------------------------------------------------------------------------------#
 
 # Alle documentatie staat in de File's gedocumenteerd per Blok tekst dat samen hangt 
